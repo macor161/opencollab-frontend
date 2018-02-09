@@ -1,1 +1,4 @@
 app/build
+node_modules
+.vscode
+.git
