@@ -5,6 +5,7 @@ let CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
 	context: path.join(__dirname, '../app'),
 	devtool: 'source-map',
+	target: 'electron',
 	entry: {
 		'app': [
 			'babel-polyfill',

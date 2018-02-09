@@ -5,6 +5,7 @@ let CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
 	context: path.join(__dirname, '../app'),
 	devtool: 'inline-source-map',
+	target: 'electron',
 	entry: {
 		'app': [
 			'babel-polyfill',
@@ -27,7 +28,7 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				exclude: /node_modules/,
+				exclude: [/node_modules/, /opencollab/],
 				test : /\.js$/,
 				loader: 'babel-loader',
 				query: {
