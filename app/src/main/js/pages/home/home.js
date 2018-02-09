@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
+import { createRepo } from '../../lib/repo'
+//import fs from 'fs'
 
 
 class Home extends Component {
+	constructor(props) {
+		super(props)
+
+		//fs.mkdir('toto')
+		
+		createRepo({ name: 'test-repo', description: 'this is a test repo' })
+		.then(result => console.log('good'))
+		.catch(e => console.log('error ', e))
+	}
+
 	render() {
 		return(
 			<div>
-				home1
+				home2
 			</div>
 		)
 	}
