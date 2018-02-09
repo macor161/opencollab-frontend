@@ -9,8 +9,8 @@
     "test": "jest"
   },
   "keywords": [
-		"Electron",
-		"react"
+    "Electron",
+    "react"
   ],
   "devDependencies": {
     "babel-core": "^6.24.0",
@@ -38,5 +38,8 @@
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1",
     "webpack-node-externals": "^1.2.0"
+  },
+  "dependencies": {
+    "fs-extra": "^5.0.0"
   }
 }
