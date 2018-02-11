@@ -36,6 +36,14 @@ module.exports = {
 					plugins: ["transform-decorators-legacy"]
 				}
 			},
+			{
+				exclude: [/node_modules/, /opencollab/],
+				use: [
+					{ loader: 'style-loader'},
+					{ loader: 'css-loader'}
+				],
+				test: /\.css$/
+			}			
 		],
 	},
 	plugins: [
