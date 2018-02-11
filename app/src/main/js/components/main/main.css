@@ -9,3 +9,9 @@ body {
     position: relative;
     margin-top: 5vh;
 }
+
+.container {
+    max-width: 1024px;
+    position: relative;
+    margin: auto;
+}

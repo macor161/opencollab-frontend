@@ -5,9 +5,47 @@
     background-color: #24292e;
     height: 72px;
     box-sizing: border-box;
+    position: relative;
 }
 
-.header a {
+.header .container {
+    height: 100%;
+}
+
+
+.header .main-logo {
+    font-family: 'Comfortaa', cursive;
+    font-size: 30px;    
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+
+
+
+.header .main-menu {
+    margin-left: 350px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.header .main-menu a {
     text-decoration: none;
-    color: black;
+    color: white;
+    font-size: 18px;
+}
+
+.header .main-menu .plus {
+    font-size: 40px;
+}
+
+
+.header .main-menu .user {
+    width: 40px;
+    height: 40px;
+    background-image: url('./user.svg');
+    background-repeat: no-repeat;
 }

@@ -9,9 +9,14 @@ class Header extends Component {
 	render(){
 		return(
 			<div className="header">
-				<h1>OpenCollab Frontend</h1>
+				<div className="container">
+					<div className="main-logo">OpenCollab Frontend</div>
 
-				<Link to="/new-repo">+</Link>
+					<div className="main-menu">
+						<Link to="/new-repo" className="plus">+</Link>
+						<Link to="/" className="user" />
+					</div>
+				</div>
 			</div>
 		)
 	}
