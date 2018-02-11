@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createRepo } from '../../lib/repo'
+import { createRepo, list } from '../../lib/repo'
 //import fs from 'fs'
 
 
@@ -8,10 +8,16 @@ class Home extends Component {
 		super(props)
 
 		//fs.mkdir('toto')
-		
+		/*
 		createRepo({ name: 'test-repo', description: 'this is a test repo' })
 		.then(result => console.log('good'))
-		.catch(e => console.log('error ', e))
+		.catch(e => console.log('error ', e))*/
+
+		
+		list()
+		.then(result => console.log(result))
+		.catch(e => console.log('error: ', e))
+		
 	}
 
 	render() {
