@@ -33,7 +33,8 @@ module.exports = {
 				loader: 'babel-loader',
 				query: {
 					presets: ['react', 'es2015', 'stage-1'],
-				},
+					plugins: ["transform-decorators-legacy"]
+				}
 			},
 		],
 	},
@@ -43,7 +44,7 @@ module.exports = {
 		new CopyWebpackPlugin([
             {from: './src/main/app.js'},
             {from: './src/main/index.html'},
-            {from: './src/main/res', to: 'res'},
-        ]),
+            {from: './src/main/res', to: 'res'}
+		]),
 	],
 };
