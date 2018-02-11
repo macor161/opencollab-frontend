@@ -43,6 +43,14 @@ module.exports = {
 					{ loader: 'css-loader'}
 				],
 				test: /\.css$/
+			},
+			{
+				test: /\.(png|jpg|svg)$/,
+				exclude: [/node_modules/, /opencollab/],
+				use: {
+				  loader: "url-loader",
+				  
+				},
 			}			
 		],
 	},
