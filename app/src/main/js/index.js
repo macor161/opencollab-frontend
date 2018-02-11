@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import Main from './components/main'
+import Main from './components/main/main'
 import { AppContainer } from 'react-hot-loader'
 
 const render = (Component) => {
@@ -15,8 +15,8 @@ const render = (Component) => {
 render(Main)
 
 if (module.hot) {
-  module.hot.accept('./components/main.js', () => {
-	  const newRoot = require('./components/main').default
+  module.hot.accept('./components/main/main.js', () => {
+	  const newRoot = require('./components/main/main').default
 	  render(newRoot)
   })
 }

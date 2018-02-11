@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+#root{
+    text-align: center;
+}
+.main{
+    position: relative;
+    margin-top: 5vh;
+}
