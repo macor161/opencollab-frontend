@@ -8,7 +8,7 @@ class Header extends Component {
 
 	render(){
 		return(
-			<div className="header" style={{ marginTop: 20 }}>
+			<div className="header">
 				<h1>OpenCollab Frontend</h1>
 
 				<Link to="/new-repo">+</Link>
