@@ -19,7 +19,6 @@
     font-size: 30px;    
     position: absolute;
     top: 50%;
-    left: 20px;
     transform: translateY(-50%);
     color: white;
 }
@@ -32,7 +31,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 20px;
     height: 100%;
 }
 
@@ -53,4 +51,18 @@
     height: 40px;
     background-image: url('./user.svg');
     background-repeat: no-repeat;
+}
+
+
+@media screen and (max-width: 1023px) {
+
+    .header .main-logo {
+        left: 20px;
+    }
+
+    .header .main-menu {
+        margin-right: 20px;
+    }
+
+
 }

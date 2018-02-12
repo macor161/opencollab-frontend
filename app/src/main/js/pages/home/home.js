@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { createRepo, list } from '../../lib/repo'
 import { observer } from 'mobx-react'
+import { Link } from 'react-router-dom'
+import { createRepo, list } from '../../lib/repo'
 import { HomeStore } from './home-store'
 //import fs from 'fs'
 
@@ -22,7 +23,7 @@ import { HomeStore } from './home-store'
 					<h2>My Repositories</h2>
 					<br />
 					{this.store.repos.map((repo, i) =>
-						<div key={i}>{repo.name}</div>
+						<Link to={`/repo/${repo.name}`} key={i}>{repo.name}</Link>
 					)}
 
 				</div>

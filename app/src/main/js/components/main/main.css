@@ -67,3 +67,26 @@ p.subhead-description {
 .input-field.col label {
     left: 0;
 }
+
+.container .row {
+    margin: 0;
+}
+
+nav {
+    background: white;
+    color: #24292e;
+    box-shadow: none;
+}
+
+.breadcrumb {
+    font-size: 24px;
+    color: #24292e;    
+}
+
+.breadcrumb:before {
+    color: #666;
+}
+
+.breadcrumb:last-child {
+    color: #000;
+}
