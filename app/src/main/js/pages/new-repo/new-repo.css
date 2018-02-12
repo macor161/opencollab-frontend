@@ -1,0 +1,33 @@
+.new-repo.page .btn-container {
+    margin-top: 80px;
+}
+
+.new-repo.page .cancel {
+    background-color: #e0f2f1;
+    color: #333333;
+    margin-left: 14px;
+}
+
+.new-repo.page .loading-container {
+    position: absolute; 
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    z-index: -1;
+    background-color: rgba(255,255,255, 0.5);
+    transition: opacity 0.4s ease-in;
+}
+
+.new-repo.page .preloader-wrapper {
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+
+.new-repo.page.loading .loading-container {
+    opacity: 1;
+    z-index: 1;
+}

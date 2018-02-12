@@ -17,12 +17,15 @@ import { HomeStore } from './home-store'
 
 	render() {
 		return(
-			<div>
-				home
+			<div className="home page">
+				<div className="container container-md">
+					<h2>My Repositories</h2>
+					<br />
+					{this.store.repos.map((repo, i) =>
+						<div key={i}>{repo.name}</div>
+					)}
 
-				{this.store.repos.map((repo, i) =>
-					<div key={i}>{repo.name}</div>
-				)}
+				</div>
 			</div>
 		)
 	}
