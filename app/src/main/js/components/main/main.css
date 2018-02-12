@@ -7,9 +7,7 @@ body {
     line-height: 1.5;
     color: #24292e;    
 }
-#root{
-    text-align: center;
-}
+
 .main{
     position: relative;
     margin-top: 5vh;
@@ -63,4 +61,9 @@ p.subhead-description {
     font-size: 14px;
     color: #586069;
     text-align: left;    
+}
+
+
+.input-field.col label {
+    left: 0;
 }
