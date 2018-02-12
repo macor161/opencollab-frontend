@@ -10,7 +10,7 @@ class Header extends Component {
 		return(
 			<div className="header">
 				<div className="container">
-					<div className="main-logo">OpenCollab Frontend</div>
+					<div className="main-logo">OpenCollab {/*Frontend*/}</div>
 
 					<div className="main-menu">
 						<Link to="/new-repo" className="plus">+</Link>
