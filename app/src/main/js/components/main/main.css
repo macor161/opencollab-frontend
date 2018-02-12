@@ -1,6 +1,11 @@
+* {
+    font-family: Roboto, sans-serif;
+}
 body {
     margin: 0;
     padding: 0;
+    line-height: 1.5;
+    color: #24292e;    
 }
 #root{
     text-align: center;
@@ -14,4 +19,48 @@ body {
     max-width: 1024px;
     position: relative;
     margin: auto;
+    box-sizing: border-box;
+}
+
+.container-md {
+    max-width: 860px;
+    position: relative;
+    margin: auto;
+    box-sizing: border-box;    
+}
+
+h1 {
+
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: normal;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0; 
+}
+
+.padding-md {
+    padding: 0 20px;
+}
+
+.page {
+    margin-top: 40px;
+}
+
+p.subhead-description {
+    margin-top: 0;
+    margin-bottom: 10px;    
+    font-size: 14px;
+    color: #586069;
+    text-align: left;    
 }
