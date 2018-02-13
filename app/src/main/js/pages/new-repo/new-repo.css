@@ -21,9 +21,8 @@
 }
 
 .new-repo.page .preloader-wrapper {
-    left: 50%;
+    left: calc(50% - 25px);
     top: 40%;
-    transform: translate(-50%, -50%);
 }
 
 

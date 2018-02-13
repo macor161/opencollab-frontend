@@ -19,10 +19,11 @@ export function createRepo(opts) {
                     return fs.writeFile(repoPath + '/README.md', `# ${opts.name}`)
                              .then(() => exec(`git add README.md`, { cwd: repoPath }))
                              .then(res => exec(`git commit -m Initial`, { cwd: repoPath }))
+                             .then(res => exec(`git remote add origin mango://${result}`, { cwd: repoPath }))
+                             .then(res => exec(`git push --set-upstream origin master`, { cwd: repoPath }))                             
                 }
             })
-            .then(res => exec(`git remote add origin mango://${result}`, { cwd: repoPath }))
-            .then(res => exec(`git push --set-upstream origin master`, { cwd: repoPath }))
+
 }
 
 
