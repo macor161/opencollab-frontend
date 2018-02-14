@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import { Link } from 'react-router-dom'
-import { createRepo, list } from '../../lib/repo'
 import { HomeStore } from './home-store'
 //import fs from 'fs'
 
