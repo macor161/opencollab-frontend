@@ -8,11 +8,10 @@ export class HomeStore {
     @observable repos = []
 
 
-    init() {
-        list().then(repos => {
-            this.repos = repos
-            this.isLoading = false
-        })
+    async init() {
+        let repos = await list()
+        this.repos = repos
+        this.isLoading = false        
     }
 
     constructor() {
