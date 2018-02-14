@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import { Link } from 'react-router-dom'
+import { Card, Icon } from 'react-materialize'
+
 import { HomeStore } from './home-store'
-//import fs from 'fs'
+
+import './home.css'
 
 @observer class Home extends Component {
 
@@ -22,7 +25,15 @@ import { HomeStore } from './home-store'
 					<h2>My Repositories</h2>
 					<br />
 					{this.store.repos.map((repo, i) =>
-						<Link to={`/repo/${repo.name}`} key={i}>{repo.name}</Link>
+						<Card key={repo.name}>
+							<span className="card-title">
+								{repo.name}
+								<Icon className="star-btn">ic_star_border</Icon>
+							</span>
+							<div className="content">
+								<Link to={`/repo/${repo.name}`} key={i}>{repo.name}</Link>
+							</div>
+						</Card>
 					)}
 
 				</div>
