@@ -35,3 +35,12 @@
     min-height: 80px;
     box-sizing: border-box;
 }
+
+.card .card-action {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card .card-action a {
+    color: #24292e !important;
+}

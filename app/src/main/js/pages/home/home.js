@@ -15,7 +15,7 @@ import './home.css'
 		super(props)
 
 		this.store = new HomeStore()	
-
+		window.homeStore = this.store
 	}
 
 	render() {
@@ -27,13 +27,16 @@ import './home.css'
 					{this.store.repos.map((repo, i) =>
 						<Card 
 							key={repo.name} 
-							actions={[<Link to={`/repo/${repo.name}`}>View repository</Link>]}>
+							actions={[
+								<Link key="view" to={`/repo/${repo.name}`}>View repository</Link>, 
+								<Link key="issues" to={`/repo/${repo.name}/issues`}>{repo.issueCount.toString()} issues</Link>
+							]}>
 							<span className="card-title">
 								{repo.name}
 								<Icon className="star-btn">ic_star_border</Icon>
 							</span>
 							<div className="content">
-								<Link to={`/repo/${repo.name}`} key={i}>{repo.name}</Link>
+								{repo.description}
 							</div>
 						</Card>
 					)}

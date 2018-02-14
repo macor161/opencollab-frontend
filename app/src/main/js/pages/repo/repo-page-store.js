@@ -31,8 +31,8 @@ export class RepoPageStore {
     async init() {
         this.repoStatus = await repos.status(this.dirName)
 
-        this.repoStatus.contract.getName().then(name => this.repoName = name)
-        this.repoStatus.contract.getDescription().then(desc => this.repoDescription = desc)
+        this.repoName = this.repoStatus.name
+        this.repoDescription = this.repoStatus.description
     }
 }
 
