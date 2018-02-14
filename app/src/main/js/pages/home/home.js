@@ -25,7 +25,9 @@ import './home.css'
 					<h2>My Repositories</h2>
 					<br />
 					{this.store.repos.map((repo, i) =>
-						<Card key={repo.name}>
+						<Card 
+							key={repo.name} 
+							actions={[<Link to={`/repo/${repo.name}`}>View repository</Link>]}>
 							<span className="card-title">
 								{repo.name}
 								<Icon className="star-btn">ic_star_border</Icon>
