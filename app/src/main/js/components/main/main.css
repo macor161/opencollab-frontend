@@ -72,6 +72,10 @@ p.subhead-description {
     margin: 0;
 }
 
+.row .col {
+    padding: 0;
+}
+
 nav {
     background: white;
     color: #24292e;
@@ -89,4 +93,12 @@ nav {
 
 .breadcrumb:last-child {
     color: #000;
+}
+
+.collection-header {
+    list-style: none;
+}
+
+.collection-header h4 {
+    font-size: 24px;
 }
