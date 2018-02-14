@@ -1,6 +1,7 @@
 import { observable } from 'mobx'
 
-import { createRepo } from '../../lib/repo'
+import { create } from '../../lib/repo'
+import { history } from '../../lib/history'
 
 export class NewRepoStore {
 
@@ -9,19 +10,22 @@ export class NewRepoStore {
     @observable name = ''
     @observable description = ''
     @observable includeReadme = false
+    @observable includeLicense = false
 
 
-    createRepo() {
+    async createRepo() {
         this.isLoading = true
         
-        return createRepo({ 
+        let result = await create({ 
             name: this.name,
-            includeReadme: this.includeReadme
+            description: this.description,
+            includeReadme: this.includeReadme,
+            includeLicense: this.includeReadme
         })
-        .then(result => {
-            this.isLoading = false
-            // TODO: Redirect
-        })
+        
+        this.isLoading = false
+        history.push(`/repo/${this.name}`)
+        
     }
 
 

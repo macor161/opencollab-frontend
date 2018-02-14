@@ -49,6 +49,14 @@ class NewRepoPage extends Component {
                         onChange={e => this.store.includeReadme = e.target.checked } 
                         className='filled-in' 
                     />
+                    <br />
+                    <Input 
+                        type='checkbox' 
+                        label='Initialize this repository with an MIT license' 
+                        checked={this.store.includeLicense}
+                        onChange={e => this.store.includeLicense = e.target.checked } 
+                        className='filled-in' 
+                    />                    
 
                     <div className="btn-container">
                         <Button waves='light' className="create-btn" onClick={() => this.store.createRepo()}>Create repository</Button> 
