@@ -2,6 +2,31 @@
     margin-top: 20px;
 }
 
+.repo.page .clone-dropdown-container {
+    display: inline-block;
+    position: absolute;
+    position: absolute;
+    top: 12px;
+    right: 10px;    
+}
+
+.repo.page .clone-dropdown {
+    height: 140px;
+    width: 350px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.repo.page .clone-btn {
+
+    text-transform: none;
+}
+
+.repo.page i {
+    vertical-align: middle;
+    margin-bottom: 1px;
+}
+
 .repo.page .tabs {
     margin-top: 20px;
 }
