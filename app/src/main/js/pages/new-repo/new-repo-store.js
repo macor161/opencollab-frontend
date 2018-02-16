@@ -20,7 +20,7 @@ export class NewRepoStore {
             name: this.name,
             description: this.description,
             includeReadme: this.includeReadme,
-            includeLicense: this.includeReadme
+            includeLicense: this.includeLicense
         })
         
         this.isLoading = false
