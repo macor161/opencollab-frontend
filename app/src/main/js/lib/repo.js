@@ -18,7 +18,7 @@ export async function create(opts) {
     console.log('Repo created at: ', result)
 
     if (includeReadme) {
-        await fs.writeFile(repoPath + '/README.md', `# ${opts.name}`)
+        await fs.writeFile(repoPath + '/README.md', `# ${opts.name}\n`)
         await exec(`git add README.md`, { cwd: repoPath })        
     }
 
