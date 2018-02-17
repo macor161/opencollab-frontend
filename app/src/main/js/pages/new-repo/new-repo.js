@@ -41,6 +41,22 @@ class NewRepoPage extends Component {
                         onChange={e => this.store.description = e.target.value } 
                     />
 
+                    <Input 
+                        label="Voter reward percentage"
+                        type="number"
+                        className="voter-reward-pct"
+                        value={this.store.voterRewardPercentage}
+                        onChange={e => this.store.voterRewardPercentage = parseFloat(e.target.value || 0) } 
+                    />
+
+                    <Input 
+                        label="Voter penalty percentage"
+                        type="number"
+                        className="voter-penalty-pct"
+                        value={this.store.voterPenaltyPercentage}
+                        onChange={e => this.store.voterPenaltyPercentage = parseFloat(e.target.value || 0) } 
+                    />                    
+
                     <br />
                     <Input 
                         type='checkbox' 

@@ -9,6 +9,10 @@ export class NewRepoStore {
 
     @observable name = ''
     @observable description = ''
+
+    @observable voterRewardPercentage = 5
+    @observable voterPenaltyPercentage = 20
+
     @observable includeReadme = false
     @observable includeLicense = false
 
