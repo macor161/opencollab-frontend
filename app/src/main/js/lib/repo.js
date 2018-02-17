@@ -13,7 +13,7 @@ export async function create(opts) {
 
     await fs.mkdirp(repoPath)
     await exec('git init', { cwd: repoPath })
-    let result = await opencollab.init(repoPath, opts.name, opts.description)
+    let result = await opencollab.init(repoPath, opts)
 
     console.log('Repo created at: ', result)
 
