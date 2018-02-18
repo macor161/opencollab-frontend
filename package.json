@@ -1,7 +1,7 @@
 {
-  "name": "decentralized-git-workflow",
+  "name": "opencollab-frontend",
   "version": "0.0.1",
-  "description": "",
+  "description": "Frontend for OpenCollab",
   "scripts": {
     "hot": "webpack-dev-server --color --config ./configs/webpack.dev.config.js",
     "dev": "cross-env NODE_ENV=development electron ./app/src/main/app.js",

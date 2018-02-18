@@ -4,10 +4,10 @@ Electron app frontend for the `OpenCollab` protocol.
 
 # Install
 
-Two dependencies are currently needed to use the frontend: [TestRPC](https://github.com/ethereumjs/testrpc) for testing purpose and [git-remote-mango](https://github.com/axic/git-remote-mango) to handle the `mango://` protocol. Then run `npm install`.
+Two dependencies are currently needed to use the frontend: [TestRPC](https://github.com/ethereumjs/testrpc) for testing purpose and [git-remote-mango](https://github.com/macor161/git-mango-helper) to handle the `mango://` protocol. Then run `npm install`.
 
 ```
-npm install -g ethereumjs-testrpc git-remote-mango
+npm install -g ethereumjs-testrpc git-mango-helper
 npm install
 ```
 
