@@ -20,12 +20,16 @@ export class NewRepoStore {
     async createRepo() {
         this.isLoading = true
         
-        let result = await create({ 
-            name: this.name,
-            description: this.description,
-            includeReadme: this.includeReadme,
-            includeLicense: this.includeLicense
-        })
+        try {
+            let result = await create({ 
+                name: this.name,
+                description: this.description,
+                includeReadme: this.includeReadme,
+                includeLicense: this.includeLicense
+            })
+        } catch(e) {
+            console.log('Error creating repo: ', e)
+        }
         
         this.isLoading = false
         history.push(`/repo/${this.name}`)
