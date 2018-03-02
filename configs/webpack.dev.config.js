@@ -28,7 +28,7 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				exclude: [/node_modules/, /opencollab/],
+				exclude: [/node_modules/, /opencollab-lib/],
 				test : /\.js$/,
 				loader: 'babel-loader',
 				query: {
@@ -37,7 +37,7 @@ module.exports = {
 				}
 			},
 			{
-				exclude: [/node_modules/, /opencollab/],
+				exclude: [/node_modules/, /opencollab-lib/],
 				use: [
 					{ loader: 'style-loader'},
 					{ loader: 'css-loader'}
@@ -46,7 +46,7 @@ module.exports = {
 			},
 			{
 				test: /\.(png|jpg|svg)$/,
-				exclude: [/node_modules/, /opencollab/],
+				exclude: [/node_modules/, /opencollab-lib/],
 				use: {
 				  loader: "url-loader",
 				  
