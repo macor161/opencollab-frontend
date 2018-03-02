@@ -4,10 +4,15 @@ Electron app frontend for the `OpenCollab` protocol.
 
 # Install
 
-Two dependencies are currently needed to use the frontend: [TestRPC](https://github.com/ethereumjs/testrpc) for testing purpose and [git-remote-mango](https://github.com/macor161/git-mango-helper) to handle the `mango://` protocol. Then run `npm install`.
+Three dependencies are currently needed to use the frontend: 
+* [TestRPC](https://github.com/ethereumjs/testrpc) for the Ethereum RPC client
+* [ipfs](https://www.npmjs.com/package/ipfs) for the IPFS node
+* [git-remote-mango](https://github.com/macor161/git-mango-helper) to handle the `mango://` protocol. 
+
+Then run `npm install`.
 
 ```
-npm install -g ethereumjs-testrpc git-mango-helper
+npm install -g ethereumjs-testrpc ipfs git-mango-helper
 npm install
 ```
 
@@ -17,6 +22,12 @@ Make sure `TestRPC` is running. Gas usage has not been addressed so it is likely
 
 ```
 testrpc -l 1000000000
+```
+
+Start the IPFS node:
+
+```
+jsipfs daemon
 ```
 
 To enable hot reload run:
