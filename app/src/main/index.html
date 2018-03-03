@@ -14,10 +14,11 @@
 </head>
 
 <body>
-	<div id="root"></div>
+	<div id="root"></div>test
+	
 	<script>
 		{
-			if(process.env.NODE_ENV) {
+			if(!process.env || process.env.NODE_ENV) {
 				const bundle = document.createElement('script');
 				const port = 8080;
 				bundle.src = 'http://localhost:' + port + '/app.bundle.js';
@@ -33,9 +34,10 @@
 			}
 		}
 	</script>
+	
 	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-	 <script>if (window.module) module = window.module;</script>
-
+	<script>if (window.module) module = window.module;</script>
+	<script src="node_modules/web3/src/index.js" charset="utf-8"></script>
 	 
 </body>
 
