@@ -1,0 +1,13 @@
+{
+  "name": "opencollab-frontend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "cp index.js dist && cp index.html dist"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "web3": "^0.20.4"
+  }
+}
