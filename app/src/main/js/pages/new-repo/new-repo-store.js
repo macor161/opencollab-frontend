@@ -1,6 +1,6 @@
 import { observable } from 'mobx'
 
-import { create } from '../../lib/repo'
+//import { create } from '../../lib/repo'
 import { history } from '../../lib/history'
 
 export class NewRepoStore {
@@ -21,12 +21,14 @@ export class NewRepoStore {
         this.isLoading = true
         
         try {
+            /*
             let result = await create({ 
                 name: this.name,
                 description: this.description,
                 includeReadme: this.includeReadme,
                 includeLicense: this.includeLicense
             })
+            */
         } catch(e) {
             console.log('Error creating repo: ', e)
         }

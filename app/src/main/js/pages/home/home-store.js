@@ -1,6 +1,6 @@
 import { observable } from 'mobx'
 
-import { list } from '../../lib/repo'
+//import { list } from '../../lib/repo'
 
 export class HomeStore {
 
@@ -9,8 +9,9 @@ export class HomeStore {
 
 
     async init() {
-        let repos = await list()
-        this.repos = repos
+        //let repos = await list()
+        //this.repos = repos
+        this.repos = []
         this.isLoading = false        
     }
 

@@ -5,8 +5,8 @@ import { history } from '../../lib/history'
 
 import Header from '../header/header'
 import Home from '../../pages/home/home'
-import NewRepoPage from '../../pages/new-repo/new-repo'
-import RepoPage from '../../pages/repo/repo-page'
+//import NewRepoPage from '../../pages/new-repo/new-repo'
+//import RepoPage from '../../pages/repo/repo-page'
 
 
 import './main.css'
@@ -17,11 +17,12 @@ class Main extends Component {
 		return(
 			<Router history={history}>
 				<div>
-					<Header />
+					<Header />					
 					<Route exact path="/" component={Home} />
+					{/*}
 					<Route exact path="/new-repo" component={NewRepoPage} />
 					<Route exact path="/repo/:id" component={RepoPage} />
-					<Route exact path="/repo/:id/:section" component={RepoPage} />
+					<Route exact path="/repo/:id/:section" component={RepoPage} />*/}
 				</div>
 			</Router>
 		)

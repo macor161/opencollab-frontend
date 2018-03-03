@@ -1,5 +1,5 @@
 import { observable, action } from 'mobx'
-import * as repos from '../../lib/repo'
+//import * as repos from '../../lib/repo'
 
 export const SECTION = {
     CODE: 'CODE',
@@ -29,7 +29,7 @@ export class RepoPageStore {
     }
 
     async init() {
-        this.repoStatus = await repos.status(this.dirName)
+        //this.repoStatus = await repos.status(this.dirName)
 
         this.repoName = this.repoStatus.name
         this.repoDescription = this.repoStatus.description
