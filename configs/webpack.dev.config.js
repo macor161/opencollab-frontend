@@ -5,7 +5,7 @@ let CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
 	context: path.join(__dirname, '../app'),
 	devtool: 'inline-source-map',
-	target: 'electron',
+	target: 'web',
 	entry: {
 		'app': [
 			'babel-polyfill',
@@ -14,6 +14,10 @@ module.exports = {
 			'webpack/hot/only-dev-server',
 			'./src/main/js/index.js',
 		],
+	},
+	node: {
+		fs: "empty",
+		child_process: "empty"
 	},
 	output: {
 		path: path.resolve(__dirname, './app/build'),
