@@ -1,5 +1,7 @@
+extensions/
+node_modules/
+dist/
 app/build
-node_modules
 .vscode
 .git
 .mango
