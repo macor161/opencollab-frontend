@@ -1,9 +1,20 @@
-const { app, BrowserWindow, shell, session, Menu, ipcMain } = require('electron');
-const path = require('path');
-const url = require('url');
-const fs = require('fs');
+const { app, BrowserWindow, shell, session, Menu, ipcMain } = require('electron')
+const path = require('path')
+const url = require('url')
+const fs = require('fs')
+const Intertron = require('../main/js/lib/intertron')
+console.log('afewawefS')
 
-const extensions = require('../../../extensions');
+const extensions = require('../../../extensions')
+
+class TestIpc {
+    toto(data, cb) {
+      console.log('toto', data)
+      data.allo ++
+      data.responded = true
+      cb(null, data)
+    }
+  }
 
 let isDev;
 try {
@@ -26,6 +37,9 @@ function createWindow() {
 
 	let indexPath;
   isDev ? indexPath = path.join(`brave/${__dirname}`, 'index.html') : indexPath = path.join(`brave/${__dirname}`, 'index.html');
+
+  var testIpc = new TestIpc()
+  var inter = new Intertron({ testIpc: { toto: (data, cb) => testIpc.toto(data, cb) } })
 
 
   setTimeout(() => {

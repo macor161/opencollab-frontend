@@ -62,7 +62,7 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin(),
 		new CopyWebpackPlugin([
-            {from: './src/main/app.js'},
+            //{from: './src/main/app.js'},
             {from: './src/main/index.html'},
             {from: './src/main/res', to: 'res'}
 		]),
