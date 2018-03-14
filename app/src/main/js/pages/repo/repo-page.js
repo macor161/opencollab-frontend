@@ -11,6 +11,7 @@ import { history } from '../../lib/history'
 
 import { CodeSection } from './components/code-section/code-section'
 import { IssuesSection } from './components/issues-section/issues-section'
+import { NewIssueSection } from './components/new-issue-section/new-issue-section'
 import { PullRequestsSection } from './components/pull-requests-section/pull-requests-section'
 import { SettingsSection } from './components/settings-section/settings-section'
 import { RepoPageStore, SECTION } from './repo-page-store'
@@ -121,6 +122,7 @@ class RepoPage extends Component {
               <Route exact path="/repo/:id" render={() => <CodeSection repo={this.store.dirName} />} />
               <Route exact path="/repo/:id/code" render={() => <CodeSection repo={this.store.dirName} />} />
               <Route exact path="/repo/:id/issues" render={() =><IssuesSection repo={this.store.dirName}/>} />
+              <Route exact path="/repo/:id/issues/new" render={() =><NewIssueSection repo={this.store.dirName}/>} />
               <Route exact path="/repo/:id/pull-requests" component={PullRequestsSection} />
               <Route exact path="/repo/:id/settings" component={SettingsSection} />
             </div>

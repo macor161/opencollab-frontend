@@ -21,7 +21,7 @@ class Main extends Component {
 					<Route exact path="/" component={Home} />
 					<Route exact path="/new-repo" component={NewRepoPage} />
 					<Route exact path="/repo/:id" component={RepoPage} />
-					<Route exact path="/repo/:id/:section" component={RepoPage} />
+					<Route path="/repo/:id/:section" component={RepoPage} />
 				</div>
 			</Router>
 		)
