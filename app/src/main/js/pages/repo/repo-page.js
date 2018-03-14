@@ -120,7 +120,7 @@ class RepoPage extends Component {
             <div>
               <Route exact path="/repo/:id" render={() => <CodeSection repo={this.store.dirName} />} />
               <Route exact path="/repo/:id/code" render={() => <CodeSection repo={this.store.dirName} />} />
-              <Route exact path="/repo/:id/issues" component={IssuesSection} />
+              <Route exact path="/repo/:id/issues" render={() =><IssuesSection repo={this.store.dirName}/>} />
               <Route exact path="/repo/:id/pull-requests" component={PullRequestsSection} />
               <Route exact path="/repo/:id/settings" component={SettingsSection} />
             </div>

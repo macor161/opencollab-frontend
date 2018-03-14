@@ -48,6 +48,10 @@ export async function list() {
     return Promise.all(directories.map(dir => opencollab.status(`${REPOS_PATH}/${dir}`)))
 }
 
+export async function listIssues(repoName) {
+    return opencollab.issues(`${REPOS_PATH}/${repoName}.git`)
+}
+
 export async function status(repo) {
     return opencollab.status(`${REPOS_PATH}/${repo}.git`)
 }
