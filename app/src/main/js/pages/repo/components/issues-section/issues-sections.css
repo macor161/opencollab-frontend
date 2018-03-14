@@ -1,0 +1,16 @@
+.section.issues {
+
+}
+
+.section .issues-header {
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+}
+
+.section.issues .add-link {
+    color: #24292e;
+    font-size: 40px;
+    line-height: 30px;
+    height: 30px;
+}
