@@ -37,7 +37,7 @@ export class NewIssueSection extends Component {
           />
           <br />
           <div className="btn-container">
-              <Button waves='light' className="create-btn" onClick={() => this.store.createRepo()}>Create issue</Button> 
+              <Button waves='light' className="create-btn" onClick={() => this.store.createRepo()}>Submit new issue</Button> 
               <Button className="cancel lighten-5">Cancel</Button>
           </div>          
         </div>
