@@ -14,6 +14,7 @@ import { IssuesSection } from './components/issues-section/issues-section'
 import { NewIssueSection } from './components/new-issue-section/new-issue-section'
 import { PullRequestsSection } from './components/pull-requests-section/pull-requests-section'
 import { SettingsSection } from './components/settings-section/settings-section'
+
 import { RepoPageStore, SECTION } from './repo-page-store'
 
 import './repo-page.css'
@@ -31,7 +32,9 @@ class RepoPage extends Component {
     this.state = { isCloneDropdownOpen: false }
 
     if (props.match.params.section) {
-      this.store.setCurrentSection(props.match.params.section.toUpperCase().replace('-', '_'))
+      this.store.setCurrentSection(
+        props.match.params.section.toUpperCase().replace('-', '_'), 
+        props.match.params.subSection)
     }
 
     window.repoPageStore = this.store
@@ -102,7 +105,7 @@ class RepoPage extends Component {
               Code
             </Button>
             <Button 
-              className={c('tab', { 'active': this.store.currentSection === SECTION.ISSUES })}
+              className={c('tab', { 'active': this.store.currentSection === SECTION.ISSUES || this.store.currentSection === SECTION.NEW_ISSUE })}
               onClick={() => this.selectSection(SECTION.ISSUES)}>
               Issues
             </Button>

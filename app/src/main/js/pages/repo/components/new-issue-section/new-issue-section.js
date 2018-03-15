@@ -8,7 +8,7 @@ import './new-issue-section.css'
 
 
 
-export class IssuesSection extends Component {
+export class NewIssueSection extends Component {
 
   
     constructor(props) {

@@ -4,6 +4,7 @@ import * as repos from '../../lib/repo'
 export const SECTION = {
     CODE: 'CODE',
     ISSUES: 'ISSUES',
+    NEW_ISSUE: 'NEW_ISSUE',
     PULL_REQUESTS: 'PULL_REQUESTS',
     SETTINGS: 'SETTINGS'
 }
@@ -19,7 +20,12 @@ export class RepoPageStore {
     @observable repoName = ''
     @observable repoDescription = ''
 
-    @action setCurrentSection(section) { this.currentSection = section }
+    @action setCurrentSection(section, subSection) { 
+        if (section === SECTION.ISSUES && subSection === 'new')
+            this.currentSection = SECTION.NEW_ISSUE
+        else
+            this.currentSection = section 
+    }
 
 
 
