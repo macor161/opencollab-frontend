@@ -46,6 +46,7 @@ class RepoPage extends Component {
 
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside)
+    this.store.destroy()
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -82,6 +83,9 @@ class RepoPage extends Component {
           </Breadcrumb>
           
           <p className="subhead-description">{this.store.repoDescription}</p>
+          <div className="token-count">
+            <strong>{this.store.availableTokensString}</strong> tokens
+          </div>
           <Dropdown 
             floating 
             ref={node => this.cloneDropdown = node}
