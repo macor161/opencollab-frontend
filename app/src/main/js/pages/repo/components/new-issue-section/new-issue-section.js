@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Collection, CollectionItem, Button, Input, Preloader } from 'react-materialize'
 import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react'
+import { default as c } from 'classnames'
 
 import { NewIssueStore } from './new-issue-store'
 
@@ -14,14 +15,13 @@ export class NewIssueSection extends Component {
   
     constructor(props) {
       super(props)
-      console.log('props: ', props)
       this.store = new NewIssueStore(props.repo)
     }
    
   
     render() {
       return (
-        <div className="section new-issue">
+        <div className={c("section", "new-issue", { "loading" : this.store.isLoading })}>
           <h2>New Issue</h2>
           <br />
           <Input 
@@ -42,7 +42,8 @@ export class NewIssueSection extends Component {
                 Submit new issue
               </Button> 
               <Button className="cancel lighten-5">Cancel</Button>
-          </div>          
+          </div> 
+          <div className="loading-container"><Preloader /></div>         
         </div>
       )
     }

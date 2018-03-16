@@ -2,3 +2,37 @@
 
 }
 
+
+.section.new-issue .btn-container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.section.new-issue .cancel {
+    background-color: #e0f2f1;
+    color: #333333;
+    margin-left: 14px;
+}
+
+.section.new-issue .loading-container {
+    position: absolute; 
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    z-index: -1;
+    background-color: rgba(255,255,255, 0.5);
+    transition: opacity 0.4s ease-in;
+}
+
+.section.new-issue .preloader-wrapper {
+    left: calc(50% - 25px);
+    top: 40%;
+}
+
+
+.section.new-issue.loading .loading-container {
+    opacity: 1;
+    z-index: 1;
+}
