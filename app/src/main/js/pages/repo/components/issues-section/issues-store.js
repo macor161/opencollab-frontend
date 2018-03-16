@@ -15,7 +15,9 @@ export class IssuesStore {
     }
 
     async init() {
-        this.issues = await repos.listIssues(this.repoName)
+        const issues = await repos.listIssues(this.repoName)
+        console.log('issues: ', issues)
+        this.issues = issues
     }
 
 }

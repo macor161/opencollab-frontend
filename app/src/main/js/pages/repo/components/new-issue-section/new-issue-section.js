@@ -14,6 +14,7 @@ export class NewIssueSection extends Component {
   
     constructor(props) {
       super(props)
+      console.log('props: ', props)
       this.store = new NewIssueStore(props.repo)
     }
    
@@ -32,12 +33,14 @@ export class NewIssueSection extends Component {
           <Input 
               type='textarea'
               label="Issue description" 
-              value={this.store.issue.description} 
-              onChange={e => this.store.issue.description = e.target.value } 
+              value={this.store.issue.content} 
+              onChange={e => this.store.issue.content = e.target.value } 
           />
           <br />
           <div className="btn-container">
-              <Button waves='light' className="create-btn" onClick={() => this.store.createRepo()}>Submit new issue</Button> 
+              <Button waves='light' className="create-btn" onClick={() => this.store.createIssue()}>
+                Submit new issue
+              </Button> 
               <Button className="cancel lighten-5">Cancel</Button>
           </div>          
         </div>
