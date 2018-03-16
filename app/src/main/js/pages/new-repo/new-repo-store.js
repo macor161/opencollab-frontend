@@ -10,6 +10,8 @@ export class NewRepoStore {
     @observable name = ''
     @observable description = ''
 
+    @observable tokenAmount = 2000000
+
     @observable voterRewardPercentage = 5
     @observable voterPenaltyPercentage = 20
 
@@ -25,7 +27,8 @@ export class NewRepoStore {
                 name: this.name,
                 description: this.description,
                 includeReadme: this.includeReadme,
-                includeLicense: this.includeLicense
+                includeLicense: this.includeLicense,
+                tokenCount: this.tokenAmount
             })
         } catch(e) {
             console.log('Error creating repo: ', e)

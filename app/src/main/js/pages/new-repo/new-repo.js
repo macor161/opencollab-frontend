@@ -41,6 +41,16 @@ class NewRepoPage extends Component {
                         onChange={e => this.store.description = e.target.value } 
                     />
 
+                    <br />
+
+                    <Input 
+                        label="Number of tokens to create"
+                        type="number"
+                        className="token-amount"
+                        value={this.store.tokenAmount}
+                        onChange={e => this.store.tokenAmount = parseInt(e.target.value || 0) } 
+                    />
+
                     <Input 
                         label="Voter reward percentage"
                         type="number"
