@@ -10,7 +10,7 @@ import './issues-sections.css'
 
 const Header = ({ repo }) => 
   <div className="issues-header">
-    <h4>Active issues</h4>
+    <h4>Open issues</h4>
     <Link className="add-link" to={`/repo/${repo}/issues/new`}>+</Link>
   </div>
 

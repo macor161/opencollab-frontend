@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { observer } from 'mobx-react'
-import { Button, Input, Preloader, Breadcrumb, MenuItem, Icon, Card } from 'react-materialize'
+import { Button, Input, Preloader, Breadcrumb, MenuItem, Icon, Card, Badge } from 'react-materialize'
 import { Dropdown } from 'semantic-ui-react'
 import { default as c } from 'classnames'
 import { Router, Route } from 'react-router-dom'
@@ -107,7 +107,7 @@ class RepoPage extends Component {
             <Button 
               className={c('tab', { 'active': this.store.currentSection === SECTION.ISSUES || this.store.currentSection === SECTION.NEW_ISSUE })}
               onClick={() => this.selectSection(SECTION.ISSUES)}>
-              Issues
+              Issues <Badge>{this.store.issueCount}</Badge>
             </Button>
             <Button 
               className={c('tab', { 'active': this.store.currentSection === SECTION.PULL_REQUESTS })}

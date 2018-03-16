@@ -8,6 +8,12 @@
     height: 30px;
 }
 
+.section .issues-header h4 {
+    font-size: 22px;
+    color: #24292e;
+    font-weight: 300;
+}
+
 .section.issues .add-link {
     color: #24292e;
     font-size: 40px;

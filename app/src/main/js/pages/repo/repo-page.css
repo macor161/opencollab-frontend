@@ -2,6 +2,14 @@
     margin-top: 20px;
 }
 
+.repo.page .tabs .badge {
+    position: absolute;
+    right: 4px;
+    height: 48px;
+    line-height: 48px;
+    vertical-align: middle;
+}
+
 .repo.page .clone-dropdown-container {
     display: inline-block;
     position: absolute;
@@ -32,6 +40,7 @@
 }
 
 .repo.page .tabs .tab {
+    position: relative;
     width: 200px;
     background-color: #eee;
     color: #24292e;

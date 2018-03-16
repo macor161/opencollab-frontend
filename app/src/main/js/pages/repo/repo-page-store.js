@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx'
+import { observable, action, computed } from 'mobx'
 import * as repos from '../../lib/repo'
 
 export const SECTION = {
@@ -19,6 +19,10 @@ export class RepoPageStore {
     @observable dirName = ' '
     @observable repoName = ''
     @observable repoDescription = ''
+
+    @computed get issueCount() {
+        return this.repoStatus.issueCount != null ? this.repoStatus.issueCount.toString() : ''
+    }
 
     @action setCurrentSection(section, subSection) { 
         if (section === SECTION.ISSUES && subSection === 'new')
