@@ -74,6 +74,7 @@ export class RepoPageStore {
 
 
     destroy() {
+        this.availableTokens = null
         this.tokenChangeDisposer()
     }
 }

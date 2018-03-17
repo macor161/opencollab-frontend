@@ -83,9 +83,7 @@ class RepoPage extends Component {
           </Breadcrumb>
           
           <p className="subhead-description">{this.store.repoDescription}</p>
-          <div className="token-count">
-            <strong>{this.store.availableTokensString}</strong> tokens
-          </div>
+
           <Dropdown 
             floating 
             ref={node => this.cloneDropdown = node}

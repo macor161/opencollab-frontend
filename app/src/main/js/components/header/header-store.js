@@ -2,7 +2,7 @@ import { observable } from 'mobx'
 
 class HeaderStore {
 
-    @observable availableRepoTokens = ''
+    @observable availableRepoTokens
 
 
 }

@@ -23,9 +23,10 @@
     color: white;
 }
 
-.header .availabe-tokens {
+.header .main-menu .available-tokens {
     font-size: 22px;
-    font-weight: 300;    
+    font-weight: 300; 
+    margin-right: 20px;   
 }
 
 

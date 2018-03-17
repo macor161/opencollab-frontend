@@ -18,7 +18,7 @@ export class NewRepoStore {
     @observable includeReadme = false
     @observable includeLicense = false
 
-
+    test() {}
     async createRepo() {
         this.isLoading = true
         
