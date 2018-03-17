@@ -1,0 +1,25 @@
+.section.issues .issue {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.section.issues .issue .id {
+    width: 50px;
+    color: #555;
+}
+
+.section.issues .issue .name {
+    font-size: 20px;
+    margin-bottom: 2px;
+    margin-top: 3px;
+}
+
+.section.issues .issue .desc {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

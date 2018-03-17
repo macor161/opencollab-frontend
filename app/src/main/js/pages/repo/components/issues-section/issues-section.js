@@ -3,6 +3,8 @@ import { Collection, CollectionItem } from 'react-materialize'
 import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react'
 
+import { IssueLine } from '../issue-line/issue-line'
+
 import { IssuesStore } from './issues-store'
 
 import './issues-sections.css'
@@ -15,6 +17,8 @@ const Header = ({ repo }) =>
   </div>
 
 
+
+
 @observer
 export class IssuesSection extends Component {
 
@@ -25,15 +29,13 @@ export class IssuesSection extends Component {
     }
    
   
-    render() {
-      return (
-        <div className="section issues">
-            <Collection header={<Header repo={this.props.repo}/>}>
-              {this.store.issues.map(issue => 
-                <CollectionItem href="#" key={issue.id}>{issue.name}</CollectionItem>
-              )}
-            </Collection>
-        </div>
-      )
-    }
+    render = () => 
+      <div className="section issues">
+          <Collection header={<Header repo={this.props.repo}/>}>
+            {this.store.issues.map(issue => 
+              <IssueLine issue={issue} key={issue.id} />
+            )}
+          </Collection>
+      </div>
+
   }
