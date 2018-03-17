@@ -1,25 +1,49 @@
-.section.issues .issue {
+.issue-line {
     height: 60px;
     display: flex;
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 20px !important;
 }
 
-.section.issues .issue .id {
-    width: 50px;
+.issue-line > div {
+    flex-grow: 1;
+}
+
+.issue-line .id {
+    max-width: 50px;
     color: #555;
 }
 
-.section.issues .issue .name {
+.issue-line .name {
     font-size: 20px;
     margin-bottom: 2px;
     margin-top: 3px;
 }
 
-.section.issues .issue .desc {
+.issue-line .desc {
     font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.issue-line .staked-tokens {
+    max-width: 80px;
+    text-align: right;
+}
+
+.issue-line .edit-stake {
+    position: relative;
+    max-width: 36px;
+    margin-left: 20px;
+    height: 100%;
+    transition: max-width 0.3s ease-out;
+}
+
+.issue-line .edit-stake-btn {
+    width: 36px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);    
 }
