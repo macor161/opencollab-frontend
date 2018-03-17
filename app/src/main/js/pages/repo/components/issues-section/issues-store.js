@@ -1,4 +1,6 @@
 import { observable } from 'mobx'
+import { default as _ } from 'lodash'
+
 import * as repos from '../../../../lib/repo'
 
 
@@ -15,7 +17,12 @@ export class IssuesStore {
     }
 
     async init() {
-        const issues = await repos.listIssues(this.repoName)
+        const issues = _(await repos.listIssues(this.repoName))
+                        .filter(issue => issue.active)
+                        .sortBy('id')
+                        .reverse()
+                        .value()
+
         console.log('issues: ', issues)
         this.issues = issues
     }
