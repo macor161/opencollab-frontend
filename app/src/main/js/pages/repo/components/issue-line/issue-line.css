@@ -45,5 +45,59 @@
     cursor: pointer;
     position: absolute;
     top: 50%;
+    opacity: 1;
     transform: translateY(-50%);    
+    transition: opacity 0.3s ease-out;
+}
+
+.issue-line .voting-buttons {
+    display: flex;
+    opacity: 0;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    align-items: center;
+    align-content: space-between;
+    transition: opacity 0.3s ease-out;
+    --arrow-size: 30px;
+    --btn-size: 36px;
+}
+
+.issue-line .voting-buttons .arrow-up {
+    width: var(--arrow-size);
+}
+
+.issue-line .voting-buttons .arrow-down {
+    width: var(--arrow-size);
+}
+
+.issue-line .voting-buttons .ok-btn {
+    width: var(--btn-size);
+    height: var(--btn-size);
+}
+
+.issue-line .voting-buttons .cancel-btn {
+    width: var(--btn-size);
+    height: var(--btn-size);    
+}
+
+/**
+ * Voting interface
+ */
+
+.issue-line .edit-stake.voting {
+    max-width: 100px;
+}
+
+.issue-line .edit-stake.voting .edit-stake-btn {
+    opacity: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+.issue-line .edit-stake.voting .voting-buttons {
+    opacity: 1;
+    z-index: 1;
+    pointer-events: inherit;
 }
