@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Collection, CollectionItem } from 'react-materialize'
 import { default as c } from 'classnames'
 
+import { repoStore } from '../../repo-page-store'
+
 import './issue-line.css'
 
 export class IssueLine extends Component {
@@ -13,6 +15,23 @@ export class IssueLine extends Component {
 
 
     startVote = () => this.setState({ isVoting: true })
+
+    incStake = () => {
+      this.setState({ tokensToStake: this.state.tokensToStake + 1 })
+      this.prepareStake()
+    }
+
+    decStake = () => {
+      if (this.state.tokensToStake > 0) {
+        this.setState({ tokensToStake: this.state.tokensToStake - 1 })
+        this.prepareStake()
+      }
+    }
+    
+    prepareStake = () => {
+      if (this.props.onPrepareStake)
+        this.props.onPrepareStake(this.props.issue, this.state.tokensToStake)
+    }
     
   
     render = () =>
@@ -33,8 +52,16 @@ export class IssueLine extends Component {
           />
           <div className="voting-buttons">
             <div className="arrows">
-              <img className="arrow-up" src={require('./images/arrow-up.svg')} />
-              <img className="arrow-down" src={require('./images/arrow-down.svg')} />
+              <img 
+                className="arrow-up" 
+                src={require('./images/arrow-up.svg')} 
+                onClick={this.incStake} 
+              />
+              <img 
+                className="arrow-down" 
+                src={require('./images/arrow-down.svg')} 
+                onClick={this.decStake} 
+              />
             </div>
 
             <img 

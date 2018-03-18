@@ -13,7 +13,7 @@ export const SECTION = {
 }
 
 
-export class RepoPageStore {
+class RepoPageStore {
 
     @observable currentSection = SECTION.CODE
 
@@ -24,9 +24,11 @@ export class RepoPageStore {
     @observable repoDescription = ''
 
     @observable availableTokens = null
+    @observable tokensToStake = 0
+
 
     @computed get availableTokensString() {
-        return this.availableTokens != null ? this.availableTokens.toString() : ''
+        return this.availableTokens != null ? this.availableTokens.minus(this.tokensToStake).toString() : ''
     }
 
     @computed get issueCount() {
@@ -48,28 +50,23 @@ export class RepoPageStore {
         headerStore.availableRepoTokens = this.availableTokens
     }
 
-    @action inc() {
-        this.availableTokens = this.availableTokens.add(1)
-    }
 
 
-    constructor(name) {
-        this.dirName = name
-
+    constructor() {
         // Update header tokens on availableTokens change
         this.tokenChangeDisposer = observe(this, 'availableTokens', change => headerStore.availableRepoTokens = this.availableTokens)
 
-        this.init()
     }
 
-    async init() {
+    async setRepo(name) {
+        this.dirName = name
+        this.currentSection = SECTION.CODE
         this.repoStatus = await repos.status(this.dirName)
 
         this.repoName = this.repoStatus.name
         this.repoDescription = this.repoStatus.description
 
-        this.updateAvailableTokens()
-        console.log('repo: ', this.repoStatus)
+        this.updateAvailableTokens()        
     }
 
 
@@ -80,3 +77,4 @@ export class RepoPageStore {
 }
 
 
+export const repoStore = new RepoPageStore()

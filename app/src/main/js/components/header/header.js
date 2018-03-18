@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import { headerStore } from './header-store'
+import { repoStore } from '../../pages/repo/repo-page-store'
 
 import './header.css'
 import { isNumber } from 'util';
@@ -14,7 +15,7 @@ class Header extends Component {
 	 * in the header bar.
 	 */
 	tokensVisible() {
-		return headerStore.availableRepoTokens != null
+		return repoStore.availableTokensString
 	}
 
 	render(){
@@ -26,7 +27,7 @@ class Header extends Component {
 					<div className="main-menu">
 						{ this.tokensVisible() &&
 							<div className="available-tokens">
-								<strong>{headerStore.availableRepoTokens && headerStore.availableRepoTokens.toString()}</strong> tokens
+								<strong>{repoStore.availableTokensString}</strong> tokens
 							</div>
 						}					
 						<Link to="/new-repo" className="plus">+</Link>

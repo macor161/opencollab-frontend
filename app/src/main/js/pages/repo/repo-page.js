@@ -15,7 +15,7 @@ import { NewIssueSection } from './components/new-issue-section/new-issue-sectio
 import { PullRequestsSection } from './components/pull-requests-section/pull-requests-section'
 import { SettingsSection } from './components/settings-section/settings-section'
 
-import { RepoPageStore, SECTION } from './repo-page-store'
+import { repoStore, SECTION } from './repo-page-store'
 
 import './repo-page.css'
 
@@ -28,7 +28,8 @@ class RepoPage extends Component {
 
   constructor(props) {
     super(props)
-    this.store = new RepoPageStore(props.match.params.id)
+    this.store = repoStore
+    this.store.setRepo(props.match.params.id)
     this.state = { isCloneDropdownOpen: false }
 
     if (props.match.params.section) {
