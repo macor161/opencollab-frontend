@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Dropdown } from 'semantic-ui-react'
 import { observer } from 'mobx-react'
+import { history } from '../../lib/history'
 
 
 import { headerStore } from './header-store'
@@ -17,9 +18,9 @@ class Header extends Component {
 	 * Returns true if tokens must be shown
 	 * in the header bar.
 	 */
-	tokensVisible() {
-		return repoStore.availableTokensString
-	}
+	tokensVisible = () => repoStore.availableTokensString
+  
+  linkTo = link => history.push(link)
 
 	render = () =>
     <div className="header">
@@ -34,8 +35,14 @@ class Header extends Component {
           }	
           <Dropdown text='+' className="new-repo-btn">
             <Dropdown.Menu>
-            <Dropdown.Item><Link to="/new-repo">Create a new repository</Link></Dropdown.Item>
-            <Dropdown.Item><Link to="/import-github-repo">Import from GitHub</Link></Dropdown.Item>
+              <Dropdown.Item 
+                text="Create a new repository" 
+                onClick={() => this.linkTo('/new-repo')} 
+              />
+              <Dropdown.Item 
+                text="Import from GitHub"
+                onClick={() => this.linkTo('/import-github-repo')}
+              />
             </Dropdown.Menu>
           </Dropdown>				
           <Link to="/" className="user" />
