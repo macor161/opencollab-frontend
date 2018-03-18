@@ -42,12 +42,23 @@ class RepoPageStore {
             this.currentSection = section 
     }
 
+    @action async saveStake(issue) {
+        //const response = await this.repoStatus.contract.mangoRepo.stakeIssue(issue.id, this.tokensToStake)
+        await repos.stakeIssue(this.repoName, issue.id, this.tokensToStake)
 
-    async updateAvailableTokens() {
+        this.updateAvailableTokens()
+    }
+
+    @action async cancelStake() {
+        this.tokensToStake = 0
+    }
+
+
+    @action async updateAvailableTokens() {        
         const account = await opencollab.getAccount()
         const maintainer = await this.repoStatus.contract.mangoRepo.getMaintainer(0)
         this.availableTokens = await this.repoStatus.contract.mangoRepo.balanceOf(account)
-        headerStore.availableRepoTokens = this.availableTokens
+        this.tokensToStake = 0
     }
 
 

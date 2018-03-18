@@ -63,22 +63,32 @@
     --btn-size: 36px;
 }
 
+.issue-line .arrows {
+    height: 42px;
+    margin-top: 2px;
+}
+
 .issue-line .voting-buttons .arrow-up {
     width: var(--arrow-size);
+    cursor: pointer;
 }
 
 .issue-line .voting-buttons .arrow-down {
     width: var(--arrow-size);
+    cursor: pointer;
 }
 
 .issue-line .voting-buttons .ok-btn {
     width: var(--btn-size);
     height: var(--btn-size);
+    margin-right: 8px;
+    cursor: pointer;
 }
 
 .issue-line .voting-buttons .cancel-btn {
     width: var(--btn-size);
-    height: var(--btn-size);    
+    height: var(--btn-size);  
+    cursor: pointer;  
 }
 
 /**
@@ -86,7 +96,7 @@
  */
 
 .issue-line .edit-stake.voting {
-    max-width: 100px;
+    max-width: 130px;
 }
 
 .issue-line .edit-stake.voting .edit-stake-btn {

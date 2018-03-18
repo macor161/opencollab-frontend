@@ -61,6 +61,10 @@ export async function status(repo) {
     return opencollab.status(`${REPOS_PATH}/${repo}.git`)
 }
 
+export async function stakeIssue(repo, issueId, stake) {
+    return opencollab.stakeIssue(`${REPOS_PATH}/${repo}.git`, issueId, stake)
+}
+
 
 
 function exec(command, opts) {

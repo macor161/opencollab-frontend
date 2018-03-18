@@ -10,27 +10,35 @@ export class IssueLine extends Component {
 
     state = { 
       tokensToStake: 0, 
-      isVoting: false 
+      isStaking: false 
     }
 
+    totalStake = () => this.props.issue.totalStake.plus(this.state.tokensToStake)
 
-    startVote = () => this.setState({ isVoting: true })
+    startStaking = () => this.setState({ isStaking: true })
+
+    saveStake = async () => { 
+      await repoStore.saveStake(this.props.issue)
+      this.setState({ tokensToStake: 0, isStaking: false })      
+    }
+
+    cancelStake = () => {
+      this.setState({ tokensToStake: 0, isStaking: false })
+      repoStore.cancelStake()
+    }
 
     incStake = () => {
-      this.setState({ tokensToStake: this.state.tokensToStake + 1 })
-      this.prepareStake()
+      this.setState({ tokensToStake: this.state.tokensToStake + 1 }, this.prepareStake)
     }
 
     decStake = () => {
       if (this.state.tokensToStake > 0) {
-        this.setState({ tokensToStake: this.state.tokensToStake - 1 })
-        this.prepareStake()
+        this.setState({ tokensToStake: this.state.tokensToStake - 1 }, this.prepareStake)
       }
     }
     
     prepareStake = () => {
-      if (this.props.onPrepareStake)
-        this.props.onPrepareStake(this.props.issue, this.state.tokensToStake)
+      repoStore.tokensToStake = this.state.tokensToStake
     }
     
   
@@ -42,13 +50,13 @@ export class IssueLine extends Component {
           <div className="desc">{this.props.issue.description}</div>
         </div>
         <div className="staked-tokens">
-          <strong>{this.props.issue.totalStake.toString()}</strong> tokens
+          <strong>{this.totalStake().toString()}</strong> tokens
         </div>
-        <div className={c("edit-stake", { 'voting': this.state.isVoting })}>
+        <div className={c("edit-stake", { 'voting': this.state.isStaking })}>
           <img 
             className="edit-stake-btn" 
             src={require('./images/vote.svg')} 
-            onClick={this.startVote}
+            onClick={this.startStaking}
           />
           <div className="voting-buttons">
             <div className="arrows">
@@ -67,13 +75,13 @@ export class IssueLine extends Component {
             <img 
               className="ok-btn" 
               src={require('./images/ok.png')} 
-              onClick={this.startVote}
+              onClick={this.saveStake}
             />
 
             <img 
               className="cancel-btn" 
               src={require('./images/cancel.png')} 
-              onClick={this.startVote}
+              onClick={this.cancelStake}
             />            
           </div>
         </div>        

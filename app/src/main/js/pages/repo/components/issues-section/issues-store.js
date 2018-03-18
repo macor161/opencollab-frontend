@@ -1,6 +1,7 @@
-import { observable } from 'mobx'
+import { observable, observe } from 'mobx'
 import { default as _ } from 'lodash'
 
+import { repoStore } from '../../repo-page-store'
 import * as repos from '../../../../lib/repo'
 
 
@@ -17,14 +18,18 @@ export class IssuesStore {
     }
 
     async init() {
-        const issues = _(await repos.listIssues(this.repoName))
+
+        observe(repoStore, 'availableTokens', change => this.updateIssues())
+        
+    }
+
+
+    async updateIssues() {
+        this.issues = _(await repos.listIssues(this.repoName))
                         .filter(issue => issue.active)
                         .sortBy('id')
                         .reverse()
                         .value()
-
-        console.log('issues: ', issues)
-        this.issues = issues
     }
 
 }
