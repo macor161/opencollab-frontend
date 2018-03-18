@@ -38,16 +38,36 @@
     height: 100%;
 }
 
-.header .main-menu a {
+.header .main-menu > a {
     text-decoration: none;
     color: white;
     font-size: 18px;
 }
 
-.header .main-menu .plus {
-    font-size: 40px;
+
+/**
+ * New Repo Dropdown
+ */
+.header .new-repo-btn {
     margin-right: 14px;
 }
+
+.header .new-repo-btn > .text {
+    font-size: 40px;
+    color: white;
+}
+
+.header .new-repo-btn > .dropdown.icon {
+    top: -7px;
+    color: white;
+}
+
+.header .new-repo-btn .item a {
+    color: #24292e;
+}
+
+
+
 
 
 .header .main-menu .user {
