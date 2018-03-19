@@ -73,7 +73,7 @@ export async function listIssues(repoName) {
 }
 
 export async function createIssue(opts) {
-    return await opencollab.newIssue(`${REPOS_PATH}/${opts.repoName}.git`, opts.name, opts.description, opts.content)
+    return await opencollab.newIssue(`${REPOS_PATH}/${opts.repoName}.git`, opts.name, opts.description, opts.content, opts.isActive)
 }
 
 

@@ -54,7 +54,7 @@ export class ImportGithubRepoStore {
 
         try {
             const issues = _(await github.getRepoIssues(this.selectedRepo.full_name))
-                            .sortBy('id')
+                            .sortBy('number')
                             .value()
 
             for(var issue of issues) {
@@ -62,7 +62,8 @@ export class ImportGithubRepoStore {
                     repoName: this.name, 
                     name: issue.title,
                     description: issue.body.substring(0, 150).replace(new RegExp('#', 'g'), ''),
-                    content: issue.body
+                    content: issue.body,
+                    isActive: issue.state === 'open'
                 })
             }
         } catch(e) {
