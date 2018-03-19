@@ -1,8 +1,9 @@
 import { observable } from 'mobx'
 
-import { create } from '../../lib/repo'
+import { create, createIssue } from '../../lib/repo'
 import { history } from '../../lib/history'
 import * as github from '../../lib/github'
+import { default as _} from 'lodash'
 
 
 export class ImportGithubRepoStore {
@@ -45,8 +46,26 @@ export class ImportGithubRepoStore {
                 includeLicense: this.includeLicense,
                 tokenCount: this.tokenAmount
             })
+
         } catch(e) {
             console.log('Error creating repo: ', e)
+        }
+
+        try {
+            const issues = _(await github.getRepoIssues(this.selectedRepo.full_name))
+                            .sortBy('id')
+                            .value()
+
+            for(var issue of issues) {
+                await createIssue({ 
+                    repoName: this.name, 
+                    name: issue.title,
+                    description: issue.body.substring(0, 150).replace(new RegExp('#', 'g'), ''),
+                    content: issue.body
+                })
+            }
+        } catch(e) {
+            console.log('Error importing issues: ', e)
         }
         
         this.isLoading = false

@@ -14,7 +14,25 @@ export async function getRepoInfo(repoUrl) {
 
     const repoInfo = await repo.getDetails()
 
+    const issues = await getRepoIssues(repoInfo.data.full_name)
+
     return repoInfo.data
+}
+
+/**
+ * Returns the issues associated with a GitHub repository
+ * @param {string} repoUrl 
+ */
+export async function getRepoIssues(repoUrl) {
+
+    const info = getGithubRepoInfoFromUrl(repoUrl)
+    const issueObj = await github.getIssues(info.owner, info.repo)
+
+    const issues = await issueObj.listIssues()
+
+    console.log('issues: ', issues)
+
+    return issues.data
 }
 
 
