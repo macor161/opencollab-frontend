@@ -1,15 +1,21 @@
-.new-repo.page .btn-container {
+.new-repo-import.page .btn-container {
     margin-top: 60px;
     margin-bottom: 60px;
 }
 
-.new-repo.page .cancel {
+.repo-import-modal .btn-container {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.new-repo-import.page .cancel,
+.repo-import-modal .cancel {
     background-color: #e0f2f1;
     color: #333333;
     margin-left: 14px;
 }
 
-.new-repo.page .loading-container {
+.new-repo-import.page .loading-container {
     position: absolute; 
     top: 0;
     bottom: 0;
@@ -21,18 +27,18 @@
     transition: opacity 0.4s ease-in;
 }
 
-.new-repo.page .preloader-wrapper {
+.new-repo-import.page .preloader-wrapper {
     left: calc(50% - 25px);
     top: 40%;
 }
 
 
-.new-repo.page.loading .loading-container {
+.new-repo-import.page.loading .loading-container {
     opacity: 1;
     z-index: 1;
 }
 
 
-.new-repo.page input[type=number] {
+.new-repo-import.page input[type=number] {
     width: 180px;
 }
