@@ -14,8 +14,6 @@ export async function getRepoInfo(repoUrl) {
 
     const repoInfo = await repo.getDetails()
 
-    const issues = await getRepoIssues(repoInfo.data.full_name)
-
     return repoInfo.data
 }
 
@@ -29,8 +27,6 @@ export async function getRepoIssues(repoUrl) {
     const issueObj = await github.getIssues(info.owner, info.repo)
 
     const issues = await issueObj.listIssues()
-
-    console.log('issues: ', issues)
 
     return issues.data
 }
