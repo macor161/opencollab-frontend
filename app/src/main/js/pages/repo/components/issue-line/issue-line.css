@@ -10,14 +10,22 @@
 }
 
 .issue-line .id {
+    min-width: 50px;
     max-width: 50px;
     color: #555;
+}
+
+.issue-line .main-content {
+    overflow: hidden;
 }
 
 .issue-line .name {
     font-size: 20px;
     margin-bottom: 2px;
     margin-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;    
 }
 
 .issue-line .desc {
@@ -28,16 +36,20 @@
 }
 
 .issue-line .staked-tokens {
+    min-width: 80px;
     max-width: 80px;
     text-align: right;
 }
 
 .issue-line .edit-stake {
     position: relative;
+    min-width: 36px;
     max-width: 36px;
     margin-left: 20px;
+    overflow: hidden;
     height: 100%;
-    transition: max-width 0.3s ease-out;
+    transition: max-width 0.25s ease-out,
+                min-width 0.25s ease-out;
 }
 
 .issue-line .edit-stake-btn {
@@ -96,6 +108,7 @@
  */
 
 .issue-line .edit-stake.voting {
+    min-width: 130px;
     max-width: 130px;
 }
 
