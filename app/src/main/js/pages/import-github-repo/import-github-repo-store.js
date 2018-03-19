@@ -1,6 +1,6 @@
 import { observable } from 'mobx'
 
-import { create, createIssue } from '../../lib/repo'
+import { create, createIssue, importFromGithub } from '../../lib/repo'
 import { history } from '../../lib/history'
 import * as github from '../../lib/github'
 import { default as _} from 'lodash'
@@ -39,7 +39,8 @@ export class ImportGithubRepoStore {
         this.isLoading = true
         
         try {
-            let result = await create({ 
+            let result = await importFromGithub({ 
+                url: this.selectedRepo.clone_url,
                 name: this.name,
                 description: this.description,
                 includeReadme: this.includeReadme,

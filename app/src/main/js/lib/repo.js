@@ -17,6 +17,7 @@ export async function create(opts) {
 
     console.log('Repo created at: ', result)
 
+    
     if (includeReadme) {
         await fs.writeFile(repoPath + '/README.md', `# ${opts.name}\n`)
         await exec(`git add README.md`, { cwd: repoPath })        
@@ -30,6 +31,25 @@ export async function create(opts) {
     if (includeReadme || includeLicense) 
         await exec(`git commit -m Initial`, { cwd: repoPath })
     
+
+    await exec(`git remote add origin mango://${result}`, { cwd: repoPath })
+    await exec(`git push --set-upstream origin master`, { cwd: repoPath })
+
+}
+
+
+export async function importFromGithub(opts) {
+    let repoPath = `${REPOS_PATH}/${opts.name}.git`
+    let includeReadme = !!opts.includeReadme
+    let includeLicense = !!opts.includeLicense
+
+    await fs.mkdirp(repoPath)
+    await exec(`git clone ${opts.url} .`, { cwd: repoPath })
+    let result = await opencollab.init(repoPath, opts)
+
+    console.log('Repo created at: ', result)
+
+    await exec(`git remote remove origin`, { cwd: repoPath })
 
     await exec(`git remote add origin mango://${result}`, { cwd: repoPath })
     await exec(`git push --set-upstream origin master`, { cwd: repoPath })
