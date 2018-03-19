@@ -102,3 +102,7 @@ nav {
 .collection-header h4 {
     font-size: 24px;
 }
+
+.ui.page.modals {
+    margin: 0;
+}
