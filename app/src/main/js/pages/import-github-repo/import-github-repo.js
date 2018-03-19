@@ -28,8 +28,9 @@ class ImportGithubRepoPage extends Component {
           A repository contains all the files for your project, including the revision history.
         </p>
 
+        <Button className="repo-select-btn" onClick={() => this.store.isModalOpen = true}>Select repository</Button>
 
-        <Modal className="repo-import-modal" trigger={<Button className="repo-select-btn">Select repository</Button>}>
+        <Modal open={this.store.isModalOpen} className="repo-import-modal">
           <Modal.Header>Select your GitHub Repository</Modal.Header>
           <Modal.Content>
             <Modal.Description>
@@ -37,6 +38,8 @@ class ImportGithubRepoPage extends Component {
               <Input
                 placeholder="ex: https://www.github.com/macor161/opencollab-frontend"
                 className="repo-url"
+                value={this.store.repoUrl}
+                onChange={e => this.store.repoUrl = e.target.value}
               />
 
               <div className="btn-container">
@@ -47,17 +50,19 @@ class ImportGithubRepoPage extends Component {
           </Modal.Content>
         </Modal>          
 
-        <br />
+        <br /><br />
 
         <Input
           label="Repository Name"
           value={this.store.name}
+          defaultValue=" "
           onChange={e => this.store.name = e.target.value}
         />
 
         <Input
           label="Repository Description"
           value={this.store.description}
+          defaultValue=" "
           onChange={e => this.store.description = e.target.value}
         />
 

@@ -2,6 +2,8 @@ import { observable } from 'mobx'
 
 import { create } from '../../lib/repo'
 import { history } from '../../lib/history'
+import * as github from '../../lib/github'
+
 
 export class ImportGithubRepoStore {
 
@@ -9,6 +11,8 @@ export class ImportGithubRepoStore {
 
     @observable name = ''
     @observable description = ''
+
+    @observable repoUrl = ''
 
     @observable tokenAmount = 2000000
 
@@ -18,7 +22,18 @@ export class ImportGithubRepoStore {
     @observable includeReadme = false
     @observable includeLicense = false
 
-    test() {}
+    @observable isModalOpen = false
+
+    selectedRepo
+
+    async importBasicInfo() {
+        const repoInfo = await github.getRepoInfo(this.repoUrl)
+        this.name = repoInfo.name
+        this.description = repoInfo.description
+        this.selectedRepo = repoInfo
+        this.isModalOpen = false
+    }
+
     async createRepo() {
         this.isLoading = true
         
