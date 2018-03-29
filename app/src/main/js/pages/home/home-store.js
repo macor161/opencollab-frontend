@@ -1,5 +1,4 @@
 import { observable } from 'mobx'
-
 import { list } from '../../lib/repo'
 
 export class HomeStore {

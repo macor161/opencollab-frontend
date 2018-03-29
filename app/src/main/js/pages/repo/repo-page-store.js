@@ -1,6 +1,6 @@
 import { observable, action, computed, observe } from 'mobx'
 import * as repos from '../../lib/repo'
-import * as opencollab from 'opencollab-lib'
+import OpenCollab from 'opencollab-lib'
 
 import { headerStore } from '../../components/header/header-store'
 
@@ -44,7 +44,7 @@ class RepoPageStore {
 
     @action async saveStake(issue) {
         //const response = await this.repoStatus.contract.mangoRepo.stakeIssue(issue.id, this.tokensToStake)
-        await repos.stakeIssue(this.repoName, issue.id, this.tokensToStake)
+        await this.repo.stakeIssue(issue.id, this.tokensToStake)
 
         this.updateAvailableTokens()
     }
@@ -55,7 +55,7 @@ class RepoPageStore {
 
 
     @action async updateAvailableTokens() {        
-        const account = await opencollab.getAccount()
+        const account = await this.repo.getWeb3Account()
         const maintainer = await this.repoStatus.contract.mangoRepo.getMaintainer(0)
         this.availableTokens = await this.repoStatus.contract.mangoRepo.balanceOf(account)
         this.tokensToStake = 0
@@ -72,7 +72,8 @@ class RepoPageStore {
     async setRepo(name) {
         this.dirName = name
         this.currentSection = SECTION.CODE
-        this.repoStatus = await repos.status(this.dirName)
+        this.repo = new OpenCollab(repos.getRepoPath(name))
+        this.repoStatus = await this.repo.status()
 
         this.repoName = this.repoStatus.name
         this.repoDescription = this.repoStatus.description

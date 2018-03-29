@@ -1,4 +1,5 @@
 import { observable } from 'mobx'
+import OpenCollab from 'opencollab-lib'
 import * as repos from '../../../../lib/repo'
 import { history } from '../../../../lib/history'
 
@@ -21,19 +22,18 @@ export class NewIssueStore {
     }
 
     async init() {
-       
+       this.repo = new OpenCollab(repos.getRepoPath(this.repoName))
     }
 
     async createIssue() {
         this.isLoading = true
         
         try {
-            let result = await repos.createIssue({ 
-                repoName: this.repoName,
-                name: this.issue.name,
-                description: this.getIssueDescription(this.issue.content),
-                content: this.issue.content
-            })
+            let result = await this.repo.newIssue(
+                this.issue.name,
+                this.getIssueDescription(this.issue.content),
+                this.issue.content
+            )
         } catch(e) {
             console.log('Error creating issue: ', e)
         }

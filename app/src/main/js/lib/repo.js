@@ -1,5 +1,5 @@
 import fs from 'fs-extra'
-import opencollab from 'opencollab-lib'
+import OpenCollab from 'opencollab-lib'
 import shell from 'shelljs'
 
 const REPOS_PATH = 'tmp/repos'
@@ -13,7 +13,8 @@ export async function create(opts) {
 
     await fs.mkdirp(repoPath)
     await exec('git init', { cwd: repoPath })
-    let result = await opencollab.init(repoPath, opts)
+    let repo = new OpenCollab(repoPath)
+    let result = await repo.init(opts)
 
     console.log('Repo created at: ', result)
 
@@ -45,7 +46,8 @@ export async function importFromGithub(opts) {
 
     await fs.mkdirp(repoPath)
     await exec(`git clone ${opts.url} .`, { cwd: repoPath })
-    let result = await opencollab.init(repoPath, opts)
+    let repo = new OpenCollab(repoPath)
+    let result = await repo.init(opts)
 
     console.log('Repo created at: ', result)
 
@@ -65,24 +67,14 @@ export async function listFiles(repoName) {
 export async function list() {
     let items = await fs.readdir(REPOS_PATH)
     let directories = items.filter(item => fs.lstatSync(`${REPOS_PATH}/${item}`).isDirectory())
-    return Promise.all(directories.map(dir => opencollab.status(`${REPOS_PATH}/${dir}`)))
+    return Promise.all(directories.map(dir => {
+        let repo = new OpenCollab(`${REPOS_PATH}/${dir}`)
+        return repo.status(`${REPOS_PATH}/${dir}`)
+    }))
 }
 
-export async function listIssues(repoName) {
-    return opencollab.issues(`${REPOS_PATH}/${repoName}.git`)
-}
-
-export async function createIssue(opts) {
-    return await opencollab.newIssue(`${REPOS_PATH}/${opts.repoName}.git`, opts.name, opts.description, opts.content, opts.isActive)
-}
-
-
-export async function status(repo) {
-    return opencollab.status(`${REPOS_PATH}/${repo}.git`)
-}
-
-export async function stakeIssue(repo, issueId, stake) {
-    return opencollab.stakeIssue(`${REPOS_PATH}/${repo}.git`, issueId, stake)
+export function getRepoPath(repoName) {
+    return `${REPOS_PATH}/${repoName}.git`
 }
 
 
